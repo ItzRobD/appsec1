@@ -11,12 +11,12 @@ test0: giftcardreader
 
 test1: giftcardreader
 	# Run first crash file
-	./giftcardreader 1 crash1/crash1.gft
+	./giftcardreader 1 tests/crash1.gft
 
 test2: giftcardreader
 	# Run second crash file
-	./giftcardreader 1 crash2/crash2.gft
+	./giftcardreader 1 tests/crash2.gft
 
 test3: giftcardreader
 	# Run hang file
-	./giftcardreader 1 hang/hang.gft
+	./giftcardreader 1 tests/hang.gft
