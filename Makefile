@@ -3,7 +3,7 @@ giftcardreader: giftcardreader.c giftcard.h
 
 all: giftcardreader test
 
-test: test0 test1 test2
+test: test0 test1 test2 test3
 
 test0: giftcardreader
 	# Run initial project files
@@ -16,3 +16,7 @@ test1: giftcardreader
 test2: giftcardreader
 	# Run second crash file
 	./giftcardreader 1 crash2/crash2.gft
+
+test2: giftcardreader
+	# Run hang file
+	./giftcardreader 1 hang/hang.gft
