@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <string.h>
 
 // interpreter for THX-1138 assembly
 void animate(char *msg, unsigned char *program) {
@@ -26,36 +27,53 @@ void animate(char *msg, unsigned char *program) {
         arg2 = *(pc+2);
         switch (*pc) {
             case 0x00:
+                printf("Case 0");
                 break;
             case 0x01:
+                printf("Case 1\n");
+                printf("%d\n", *mptr);
                 regs[arg1] = *mptr;
                 break;
             case 0x02:
+                printf("Case 2");
                 *mptr = regs[arg1];
                 break;
             case 0x03:
+                printf("Case 3");
                 mptr += (char)arg1;
                 break;
             case 0x04:
+                printf("Case 4");
                 regs[arg2] = arg1;
                 break;
             case 0x05:
+                printf("Case 5");
                 regs[arg1] ^= regs[arg2];
+                printf("Regsarg1: %d", regs[arg1]);
                 zf = !regs[arg1];
                 break;
             case 0x06:
+                printf("Case 6\n");
+                printf("Regsarg1: %d\n", regs[arg1]);
+                printf("Regsarg2: %d\n", regs[arg2]);
                 regs[arg1] += regs[arg2];
+                printf("Regsarg1After: %d\n", regs[arg1]);
                 zf = !regs[arg1];
+                printf("ZF: %d\n", zf);
                 break;
             case 0x07:
+                printf("Case 7");
                 puts(msg);
                 break;
             case 0x08:
+                printf("Case 8");
                 goto done;
             case 0x09:
+                printf("OMG");
                 pc += (char)arg1;
                 break;
             case 0x10:
+                printf("Case 10");
                 if (zf) pc += (char)arg1;
                 break;
         }
@@ -185,6 +203,12 @@ struct this_gift_card *gift_card_reader(FILE *input_fd) {
 		struct gift_card_data *gcd_ptr;
 		/* JAC: Why aren't return types checked? */
 		fread(&ret_val->num_bytes, 4,1, input_fd);
+        //crash1
+        if(ret_val->num_bytes < 0)
+        {
+            printf("ERROR EXITING");
+            exit(0);
+        }
 
 		// Make something the size of the rest and read it in
 		ptr = malloc(ret_val->num_bytes);
