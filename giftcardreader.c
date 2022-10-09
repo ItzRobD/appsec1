@@ -77,7 +77,8 @@ void animate(char *msg, unsigned char *program) {
                 break;
             case 0x10:
                 printf("Case 10");
-                if (zf) pc += (char)arg1;
+                //hang
+                if (zf) pc += (unsigned char)arg1;
                 break;
         }
         pc+=3;

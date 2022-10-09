@@ -17,6 +17,6 @@ test2: giftcardreader
 	# Run second crash file
 	./giftcardreader 1 crash2/crash2.gft
 
-test2: giftcardreader
+test3: giftcardreader
 	# Run hang file
 	./giftcardreader 1 hang/hang.gft
