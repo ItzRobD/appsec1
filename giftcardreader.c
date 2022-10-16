@@ -30,8 +30,14 @@ void animate(char *msg, unsigned char *program) {
                 printf("Case 0");
                 break;
             case 0x01:
+                // cov1
                 printf("Case 1\n");
                 printf("%d\n", *mptr);
+                if (arg1 > 15 || arg1 < 0)
+                {
+                    printf("Error");
+                    return;
+                }
                 regs[arg1] = *mptr;
                 break;
             case 0x02:
