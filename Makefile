@@ -31,9 +31,9 @@ test5: giftcardreader
 	./giftcardreader 1 fuzz/cov2.gft
 
 test6: giftcardreader
-	# Cov 1
+	# Fuzzer 1
 	./giftcardreader 1 fuzz/fuzzer1.gft
 
 test7: giftcardreader
-	# Cov 2
+	# Fuzzer 2
 	./giftcardreader 1 fuzz/fuzzer2.gft

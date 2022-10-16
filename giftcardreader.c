@@ -79,7 +79,8 @@ void animate(char *msg, unsigned char *program) {
                 goto done;
             case 0x09:
                 printf("OMG");
-                pc += (char)arg1;
+                // fuzz1
+                pc += arg1;
                 break;
             case 0x10:
                 printf("Case 10");
