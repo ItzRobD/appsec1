@@ -3,7 +3,7 @@ giftcardreader: giftcardreader.c giftcard.h
 
 all: giftcardreader test
 
-test: test0 test1 test2 test3 test4 test5
+test: test0 test1 test2 test3 test4 test5 test6 test7
 
 test0: giftcardreader
 	# Run initial project files
@@ -29,3 +29,11 @@ test4: giftcardreader
 test5: giftcardreader
 	# Cov 2
 	./giftcardreader 1 fuzz/cov2.gft
+
+test6: giftcardreader
+	# Cov 1
+	./giftcardreader 1 fuzz/fuzzer1.gft
+
+test7: giftcardreader
+	# Cov 2
+	./giftcardreader 1 fuzz/fuzzer2.gft
