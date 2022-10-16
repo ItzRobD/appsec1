@@ -22,6 +22,18 @@ void animate(char *msg, unsigned char *program) {
     int zf = 0;
     while (1) {
         unsigned char op, arg1, arg2;
+                if (pc == NULL)
+        {
+            printf("oops");
+            return;
+        }
+        
+        if (!*pc)
+        {
+            printf("ERROR null *pc");
+            return;
+        }
+        
         op = *pc;
         arg1 = *(pc+1);
         arg2 = *(pc+2);
