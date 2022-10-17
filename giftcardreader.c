@@ -27,7 +27,7 @@ void animate(char *msg, unsigned char *program) {
             printf("oops");
             return;
         }
-        
+        // fuzz2
         if (!*pc)
         {
             printf("ERROR null *pc");
