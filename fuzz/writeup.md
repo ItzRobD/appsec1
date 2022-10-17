@@ -12,7 +12,8 @@ Fuzzing with AFL was the next part of the assignment. I ran it overnight to gene
 The first hang I found which I was able to fix is fuzzer1.gft. The issue was caused within the animate function in case 0x09. I removed the cast to an signed char which solved the problem of the infinite
 loop.
 
-I worked through the fuzzer2.gft file through gdb with gef and I can conclude that the segmentation fault is caused by the inability to access the memory location of gcd_ptr->number_of_gift_card_records
+I worked through the various other files through gdb with gef and I can conclude that the segmentation fault is caused by the inability to access the memory location of gcd_ptr->number_of_gift_card_records
 variable. I believe this is due to the fuzzer generated file having a number higher than whan it should be however when I tried to fix this I wasn't able to. If the problem is memory access then it
 would most likely be referencing a null pointer. When I tried to check if this was the case using if (pc == NULL) or if (*pc == NULL) but this didn't solve the problem. I couldn't find a solution
-to this even after a lot of research on the topic. It's possible this program has further underlying issues that I'm not seeing in the debugger that is leading to this issue.
+to this even after a lot of research on the topic. It's possible this program has further underlying issues that I'm not seeing in the debugger that is leading to this issue.  I continued to test other
+test cases from the fuzzer. I found one that did throw the error I was looking for initially. This file is saved as fuzzer2.gft. It references a null pointer for the 'pc' pointer.
